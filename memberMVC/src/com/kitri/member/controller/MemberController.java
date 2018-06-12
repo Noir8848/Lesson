@@ -12,11 +12,32 @@ public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String root = request.getContextPath();
 		
+		String act = request.getParameter("act");
+		System.out.println("act =====" + act);
+		
+		//if(''.equals(mvjoin)) null point exception³²
+		if("mvjoin".equals(act)) {
+			response.sendRedirect(root + "/join/member.jsp");
+		} else if("mvlogin".equals(act)) {
+			response.sendRedirect(root + "/login/login.jsp");
+		} else if("mvlogin".equals(act)) {
+
+		} else if("mvjoin".equals(act)) {
+
+		} else if("mvjoin".equals(act)) {
+
+		} else if("mvjoin".equals(act)) {
+
+		} else if("mvjoin".equals(act)) {
+
+		} 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
+		doGet(request, response);
 	}
 
 }

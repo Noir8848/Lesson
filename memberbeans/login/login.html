@@ -1,29 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-String root = request.getContextPath();
-%>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/memberjsp/css/style.css" type="text/css">
+<link rel="stylesheet" href="../css/style.css" type="text/css">
 <script type="text/javascript">
 function logincheck(){
 	if(document.getElementById("id").value  == "") {
-		alert("ì•„ì´ë”” ì…ë ¥!");
+		alert("¾ÆÀÌµğ ÀÔ·Â!");
 		return;
 	} else if(document.getElementById("pass").value == "") {
-		alert("ë¹„ë°€ë²ˆí˜¸ ì…ë ¥!");
+		alert("ºñ¹Ğ¹øÈ£ ÀÔ·Â!");
 		return;
 	} else {
-		document.loginform.action = "<%=root%>/login/loginprocess.jsp";
+		document.loginform.action = "";
 		document.loginform.submit();
 	}
 }
 function joinmove(){
-	document.location.href = "<%=root%>/user?act=mvjoin";
+	
 }
 </script>
 </head>
@@ -32,17 +27,17 @@ function joinmove(){
 <form name="loginform" method="post" action="">
 <table>
 <tr>
-	<td class="td1">ì•„ì´ë””</td>
+	<td class="td1">¾ÆÀÌµğ</td>
 	<td class="td3"><input type="text" name="id" id="id"></td>
 </tr>
 <tr>
-	<td class="td2">ë¹„ë°€ë²ˆí˜¸</td>
+	<td class="td2">ºñ¹Ğ¹øÈ£</td>
 	<td class="td4"><input type="password" name="pass" id="pass"></td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-	<input type="button" value="ë¡œê·¸ì¸" onclick="javascript:logincheck();">
-	<input type="button" value="íšŒì›ê°€ì…" onclick="javascript:joinmove();">
+	<input type="button" value="·Î±×ÀÎ" onclick="javascript:logincheck();">
+	<input type="button" value="È¸¿ø°¡ÀÔ" onclick="javascript:joinmove();">
 	</td>
 </tr>
 </table>
