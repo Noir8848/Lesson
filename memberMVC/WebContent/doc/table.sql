@@ -25,3 +25,11 @@ create table member_detail
 	constraint member_detail_id_fk foreign key (id)
 	references member (id)
 );
+
+create table zipcode
+(
+	zipcode varchar2(5),
+	sido varchar2(20),
+	gugun varchar2(20),
+	doro varchar2(100)
+);

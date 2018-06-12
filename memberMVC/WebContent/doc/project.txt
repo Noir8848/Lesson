@@ -33,3 +33,11 @@ project name : membermvc
 	-join : 회원설정에 관련 된 jsp 
 	-login : 로그인 관련 jsp
 	-index.jsp
+	
+	
+	엑셀파일을 csv저장
+	loader 혹은 developer이용
+	테이블 만듦
+	디벨로퍼 테이블 임포트 csv파일
+	과정 그대로 따라감
+	

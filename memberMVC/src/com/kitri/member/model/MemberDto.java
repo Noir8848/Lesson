@@ -2,17 +2,12 @@ package com.kitri.member.model;
 
 public class MemberDto {
 	
-	String name = null;
-	String id = null;
-	String pass = null;
-	String email1 = null;
-	String email2 = null;
-	String zipcode = null;
-	String addr1 = null;
-	String addr2 = null;
-	String tel1 = null;
-	String tel2 = null;
-	String tel3 = null;
+	private String name = null;
+	private String id = null;
+	private String pass = null;
+	private String email1 = null;
+	private String email2 = null;
+	private String joindate = null;
 	
 	public String getName() {
 		return name;
@@ -44,42 +39,12 @@ public class MemberDto {
 	public void setEmail2(String email2) {
 		this.email2 = email2;
 	}
-	public String getZipcode() {
-		return zipcode;
+	public String getJoindate() {
+		return joindate;
 	}
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
-	public String getAddr1() {
-		return addr1;
-	}
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
-	}
-	public String getAddr2() {
-		return addr2;
-	}
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
-	}
-	public String getTel1() {
-		return tel1;
-	}
-	public void setTel1(String tel1) {
-		this.tel1 = tel1;
-	}
-	public String getTel2() {
-		return tel2;
-	}
-	public void setTel2(String tel2) {
-		this.tel2 = tel2;
-	}
-	public String getTel3() {
-		return tel3;
-	}
-	public void setTel3(String tel3) {
-		this.tel3 = tel3;
+	public void setJoindate(String joindate) {
+		this.joindate = joindate;
 	}
 	
-	
+
 }

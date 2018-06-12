@@ -1,24 +1,24 @@
 package com.kitri.member.service;
 
+import java.util.List;
+
 import com.kitri.member.model.MemberDetailDto;
+import com.kitri.member.model.MemberDto;
+import com.kitri.member.model.ZipDto;
 
 public interface MemberService {
 
-	boolean idCheck(MemberDTO.id, String id) {
-		return;
-	}
+	int idCheck(String id);
 	
-	zipSearch(memberDTO.zipcode){
-		
-	}
+	List<ZipDto> zipSearch(String dong);
 	
-	registerMember(){
-		 MemberDto.SetId(String id);
-	}
+	int registerMember(MemberDetailDto member);
 	
-	getMember();
-	modifyMember();
-	deleteMember();
+	MemberDetailDto getMember(String id);
 	
-	login();이름 아이디 이메일1 이메일2
+	int modifyMember(MemberDetailDto member);
+	
+	void deleteMember(String id);
+	
+	MemberDto login(String id, String pass);
 }

@@ -1,20 +1,14 @@
 package com.kitri.member.model;
 
-public class MemberDetailDto {
-	private String id  = null;
-	private String zipcode  = null;
-	private String addr1  = null;
-	private String addr2  = null;
-	private String tel1  = null;
-	private String tel2  = null;
-	private String tel3  = null;
+public class MemberDetailDto extends MemberDto{
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	private String zipcode = null;
+	private String addr1 = null;
+	private String addr2 = null;
+	private String tel1 = null;
+	private String tel2 = null;
+	private String tel3 = null;
+	
 	public String getZipcode() {
 		return zipcode;
 	}
