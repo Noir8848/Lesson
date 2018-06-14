@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.List,com.kitri.member.model.ZipDto"%>
 <%
 String root = request.getContextPath();
+
+String dong = (String) request.getAttribute("searchDong");
 %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,13 +17,16 @@ function dongcheck(){
 		alert("검색 동 입력!");
 		return;
 	} else {
-		document.zipform.action = "";
+		document.zipform.action = "<%=root%>/user";
 		document.zipform.submit();
 	}
 }
 
-function selectzip(z1, z2, address){
-
+function selectzip(zipcode, address){
+	opener.document.getElementById("zipcode").value = zipcode;
+	opener.document.getElementById("addr1").value = address;
+	
+	self.close();
 }
 </script>
 </head>
@@ -40,24 +45,43 @@ function selectzip(z1, z2, address){
 	<input type="button" value="검색" id="btnsearch" onclick="javascript:dongcheck();">
 	</td>
 </tr>
+<%
+if(dong == null) {
+%>
 <tr>
 	<td class="td4">
-	검색 결과가 없습니다.<br>
 	동이름을 정확히 입력하세요.
 	</td>
 </tr>
+<%
+} else {
+	List<ZipDto> list = (List<ZipDto>) request.getAttribute("zipList");
+	int size = list.size();
+	if(size != 0) {
+		for(ZipDto zipDto : list) {
+%>
+<tr>
+	<td class="td4">
+	<a href="javascript:selectzip('<%=zipDto.getZipcode()%>', '<%=zipDto.getAddress() %>');">
+	<%=zipDto.getZipcode()%> <%=zipDto.getAddress() %>
+	</a>
+	</td>
+</tr>
+<%
+		}
+	} else {
+%>
+<tr>
+	<td class="td4">
+	<b><%=dong%></b>에 대한 검색 결과가 없습니다.
+	</td>
+</tr>
+<%
+	}
+}
+%>
 </table>
 </form>
 </center>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

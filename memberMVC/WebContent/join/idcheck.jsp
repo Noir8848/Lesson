@@ -1,39 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.sql.*"%>
-<%!
-public void init() {
-	try {
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
-	}
-}
-%>
+    pageEncoding="UTF-8"%>
 <%
 String root = request.getContextPath();
 
 String id = request.getParameter("id");
-%>  
+%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/memberjsp/css/style.css" type="text/css">
+<link rel="stylesheet" href="<%=root%>/css/style.css" type="text/css">
 <script type="text/javascript">
 function idcheck(){
 	if(document.getElementById("id").value == "") {
 		alert("검색 아이디 입력!");
 		return;
 	} else {
-		document.idform.action = "<%=root%>/join/idcheck.jsp";
+		document.idform.action = "<%=root%>/user";
 		document.idform.submit();
 	}
 }
 
 function iduse(id){
 	opener.document.getElementById("id").value = id;
-	
 	self.close();
 }
 </script>
@@ -54,7 +44,7 @@ function iduse(id){
 	</td>
 </tr>
 <%
-if(id == null) {//회원가입 창에서 아이디 중복검사를 눌렀다면..
+if(id == null) {
 %>
 <tr>
 	<td class="td4">
@@ -62,47 +52,8 @@ if(id == null) {//회원가입 창에서 아이디 중복검사를 눌렀다면.
 	</td>
 </tr>
 <%
-} else {//검색 했다면.
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet rs = null;
-	
-	int cnt = 1;
-	try {
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.18.16:1521:xe", "kitri", "kitri");
-		String sql = "";
-		sql += "select count(id) cnt \n";
-		sql += "from member \n";
-		sql += "where id = '" + id + "'";
-		stmt = conn.createStatement();
-		rs = stmt.executeQuery(sql);
-		if(rs.next()) {
-			cnt = rs.getInt("cnt");//0 or 1
-		}
-	} catch (SQLException e) {
-		cnt = 1;
-		e.printStackTrace();
-	} finally {
-		try {
-			if(rs != null)
-				rs.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		try {
-			if(stmt != null)
-				stmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		try {
-			if(conn != null)
-				conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
+} else {
+	int cnt = Integer.parseInt(request.getParameter("cnt"));
 	if(cnt == 0) {
 %>
 <tr>

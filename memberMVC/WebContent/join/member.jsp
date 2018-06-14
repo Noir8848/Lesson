@@ -32,11 +32,11 @@ function join(){
 }
 
 function openzip(){
-	window.open("","","top=200, left=300, width=400, height=300, menubar=no, status=no, toolbar=no, location=no, scrollbars=yes");
+	window.open("<%=root%>/user?act=mvzip","zip","top=200, left=300, width=400, height=300, menubar=no, status=no, toolbar=no, location=no, scrollbars=yes");
 }
 
 function openidcheck(){
-	window.open("<%=root%>/join/idcheck.jsp","idck","top=200, left=300, width=400, height=180, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
+	window.open("<%=root%>/user?act=mvidcheck","idck","top=200, left=300, width=400, height=180, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
 }
 
 </script>
@@ -46,6 +46,7 @@ function openidcheck(){
   <center>
 	<h3>회원가입</h3>
 	<form name ="joinform" method="post" action="">
+	<input type="hidden" name="act" value="register">
 	 <table width="780" height="700" cellspacing="4" cellpadding="5">
 			<tr>
 			 <td class="td1">이름<font color="red">*</font></td>
@@ -138,18 +139,19 @@ function openidcheck(){
 
 			<tr>
 			 <td class="td2">우편번호<font color="red">*</font></td>
-			 <td class="td4"><input type="text" name="zip1" value="" size="5" maxlength="3"> -
-			 <input type="text" name="zip2" value="" size="5" maxlength="3">
-			 <input type="button" value="우편번호검색"></td>
+			 <td class="td4">
+			 <input type="text" name="zipcode" id="zipcode" value="" size="5" maxlength="5">
+			 <input type="button" value="우편번호검색" onclick="javascript:openzip();" readOnly = "readOnly">
+			 </td>
 			</tr>
 			<tr>
 			 <td class="td1">주소<font color="red">*</font></td>
-			 <td class="td3"><input type="text" name="addr1" value="" size="100"></td>
+			 <td class="td3"><input type="text" name="addr1" value="" size="100" readOnly = "readOnly"></td>
 			</tr>
 
 			<tr>
 			 <td class="td2">상세주소<font color="red">*</font></td>
-			 <td class="td4"><input type="text" name="addr2" size="100"></td>
+			 <td class="td4"><input type="text" name="addr2" size="100" readOnly = "readOnly"></td>
 			</tr>
 
             <tr>

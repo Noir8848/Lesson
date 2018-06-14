@@ -46,4 +46,5 @@ public class MemberDetailDto extends MemberDto{
 		this.tel3 = tel3;
 	}
 
+
 }
