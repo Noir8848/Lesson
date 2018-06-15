@@ -1,0 +1,65 @@
+project name : membermvc
+
+- src
+  - com.kitri.member.controller
+    MemberController.java (Servlet : /user)
+  
+  - com.kitri.member.model
+    MemberDto.java
+    MemberDetailDto.java
+    ZipDto.java
+  
+  - com.kitri.member.service
+    MemberService.java (I)
+    MemberServiceImpl.java
+  
+  - com.kitri.member.dao
+    MemberDao.java (I)
+    MemberDaoImpl.java
+  
+  - com.kitri.util
+    
+  
+  - com.kitri.util.db
+    DBConnection.java
+    DBClose.java
+
+- webContent
+  - css : *.css
+  - doc : 설명파일들.
+  - join : 회원설정에 관련 jsp
+  - login : 로그인 관련 jsp
+  - index.jsp
+  
+  
+* Cookie & Session
+1. Cookie		: client, txt (String)
+Cookie c = new Cookie(name, value);
+c.setDomain(domain);
+c.setPath("/login");
+c.setMaxAge(60 * 60 * 24 * 100);
+
+response.addCookie(c);
+
+2. HttpSession	: server, memory(Object)
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

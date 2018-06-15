@@ -17,7 +17,7 @@ public class DBConnection {
 	public static Connection makeConnection() {
 		Connection conn = null;
 		try {
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.18.16:1521:xe", "kitri", "kitri");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "kitri", "kitri");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

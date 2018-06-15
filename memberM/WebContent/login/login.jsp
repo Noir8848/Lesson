@@ -8,10 +8,10 @@ String id = "";
 String ck = "";
 if(cookie != null) {
 	int len = cookie.length;
-	for(int i = 0 ;i<len;i++){
-		if("loginid".equals(cookie[i].getName())){
+	for(int i=0;i<len;i++) {
+		if("loginid".equals(cookie[i].getName())) {
 			id = cookie[i].getValue();
-			ck = "checked=\"checked\"";
+			ck = " checked=\"checked\"";
 			break;
 		}
 	}
@@ -22,7 +22,7 @@ if(cookie != null) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%=root %>/css/style.css" type="text/css">
+<link rel="stylesheet" href="<%=root%>/css/style.css" type="text/css">
 <script type="text/javascript">
 function logincheck(){
 	if(document.getElementById("id").value  == "") {
@@ -48,12 +48,12 @@ function joinmove(){
 <table>
 <tr>
 	<td colspan="2" align="right">
-	<input type="checkbox" value="idsave" value="saveok" <%=ck %>> 아이디 저장
+	<input type="checkbox" name="idsave" value="saveok"<%=ck%>> 아이디 저장
 	</td>
 </tr>
 <tr>
 	<td class="td1">아이디</td>
-	<td class="td3"><input type="text" name="id" id="<%=id %>"></td>
+	<td class="td3"><input type="text" name="id" id="id" value="<%=id%>"></td>
 </tr>
 <tr>
 	<td class="td2">비밀번호</td>

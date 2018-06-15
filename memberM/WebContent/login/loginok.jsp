@@ -3,7 +3,7 @@
 <%
 String root = request.getContextPath();
 
-MemberDto memberDto = (MemberDto) session.getAttribute("userInfo"); /*jsp내장 객체*/
+MemberDto memberDto = (MemberDto) session.getAttribute("userInfo"); 
 if(memberDto != null) {
 %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,8 +16,9 @@ if(memberDto != null) {
 <center>
 <font color="lightgray">
 <b><%=memberDto.getName()%>(<%=memberDto.getId()%>)</b>님 안녕하세요.<br>
-<a href="mailto:<%=memberDto.getEmail1()%>@<%=memberDto.getEmail2()%>">메일보기</a>
-<a href="<%=root %>/user?act=mvmaillist">메일리스트</a>
+<a href="mailto:<%=memberDto.getEmail1()%>@<%=memberDto.getEmail2()%>">메일보내기</a><br>
+<a href="<%=root%>/user?act=mvmaillist">내메일함</a>
+
 </font>
 </center>
 </body>
@@ -32,3 +33,20 @@ document.location.href = "<%=root%>/user?act=mvlogin";
 <%	
 }
 %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

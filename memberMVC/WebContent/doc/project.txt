@@ -41,3 +41,17 @@ project name : membermvc
 	디벨로퍼 테이블 임포트 csv파일
 	과정 그대로 따라감
 	
+	
+*쿠키 & 세션
+
+1.Cookie		: client, txt(String)
+Cookie c = new Cookie(String name, String value);
+c.setDomain("login"); // 아무 경로나 도메인에서 쓰지 못하게 제한하는 메소드
+c.setPath("login"); // 아무 경로나 도메인에서 쓰지 못하게 제한하는 메소드
+c.setMaxAge(60);  // 60초간 유효한 쿠키
+
+response.addCookie(c);(java - 서버에서 작업한 파일 -> 클라이언트에게 txt로 보내야 함)
+
+2.HttpSession	: server, memory할당(Object)
+
+

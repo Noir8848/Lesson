@@ -1,18 +1,13 @@
 package com.kitri.member.service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.kitri.member.dao.MemberDao;
 import com.kitri.member.dao.MemberDaoImpl;
-import com.kitri.member.model.MemberDetailDto;
-import com.kitri.member.model.MemberDto;
-import com.kitri.member.model.ZipDto;
+import com.kitri.member.model.*;
 
 public class MemberServiceImpl implements MemberService {
 
-	
 	private MemberDao memberDao;
 	
 	public MemberServiceImpl() {
@@ -21,7 +16,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public int idCheck(String id) {
-		return memberDao.idCheck("id");
+		return memberDao.idCheck(id);
 	}
 
 	@Override
@@ -30,26 +25,22 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int registerMember(MemberDetailDto member) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int registerMember(MemberDetailDto memberDetailDto) {
+		return memberDao.registerMember(memberDetailDto);
 	}
 
 	@Override
 	public MemberDetailDto getMember(String id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int modifyMember(MemberDetailDto member) {
-		// TODO Auto-generated method stub
+	public int modifyMember(MemberDetailDto memberDetailDto) {
 		return 0;
 	}
 
 	@Override
 	public void deleteMember(String id) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -62,3 +53,15 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

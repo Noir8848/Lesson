@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.kitri.member.model.MemberDto"%>
+    pageEncoding="UTF-8" import="com.kitri.member.model.MemberDto,java.util.List"%>
 <%
 String root = request.getContextPath();
 
-MemberDto memberDto = (MemberDto) session.getAttribute("userInfo"); /*jsp내장 객체*/
+MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+
 if(memberDto != null) {
-%>  
+	List<String> list = (List<String>) request.getAttribute("maillist");
+%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,11 +16,14 @@ if(memberDto != null) {
 </head>
 <body>
 <center>
-<font color="lightgray">
-<b><%=memberDto.getName()%>(<%=memberDto.getId()%>)</b>님 안녕하세요.<br>
-<a href="mailto:<%=memberDto.getEmail1()%>@<%=memberDto.getEmail2()%>">메일보기</a>
-<a href="<%=root %>/user?act=mvmaillist">메일리스트</a>
-</font>
+<h3><%=memberDto.getName()%>님 메일 목록</h3>
+<%
+for(String subject : list) {
+%>
+	<%=subject %><br>
+<%	
+}
+%>
 </center>
 </body>
 </html>

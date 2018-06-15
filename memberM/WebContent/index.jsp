@@ -4,41 +4,27 @@
 String root = request.getContextPath();
 
 MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
-
-
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script>
-
-window.onload = function(){
-
-	window.open("<%=root%>/advertise.jsp","advertise","top=200, left=300, width=400, height=180, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
-
-}
-
-
-</script>
 </head>
 <body>
 <center>
 <h3>MVC Pattern을 이용한 회원가입 &amp; 로그인</h3>
 <%
-if(memberDto == null){
+if(memberDto == null) {
 %>
-<a href="<%=root%>/user?act=mvjoin">회원가입</a><br><!-- 서블릿 어노테이션, 같은 서블릿을 구별하기 위한 쿼리스트링 -->
+<a href="<%=root%>/user?act=mvjoin">회원가입</a><br>
 <a href="<%=root%>/user?act=mvlogin">로그인</a><br>
 <%
 } else {
 %>
 <%=memberDto.getName()%>님 안녕하세요.
-<a href="<%=root %>/user?act=mvlogout">로그아웃</a>
-<a href="<%=root %>/user?act=mvmodify">내정보수정</a><!-- 모두 찍힌상태로 아이디 비번 제외한 모든거 변경 -->
-<a href="<%=root %>/user?act=delete">회원탈퇴</a><!-- 모두 찍힌상태로 아이디 비번 제외한 모든거 변경 -->
-<%
+<a href="">로그아웃</a>
+<%	
 }
 %>
 </center>
