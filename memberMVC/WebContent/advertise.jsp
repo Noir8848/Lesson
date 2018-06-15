@@ -11,14 +11,12 @@ String root = request.getContextPath();
 <script>
 
 function exit(){	
-	document.form.action = "<%=root%>/user";
-	document.form.summit();
-	
 	self.close();
 }
 
 function summit(){
-
+	document.form.action = "<%=root%>/user";
+	document.form.summit();
 }
 
 </script>
@@ -28,7 +26,7 @@ function summit(){
 <input type="hidden" name="act" value="advertiseok">
 <center>여기는 광고창입니다.</center>
 <input type="checkbox" name="ad" value="ad"> 오늘은 그만 볼래요.
-<input type="button" name="exit" id="exit" onclick="javascript:exit()">나가기
 </form>
+<button name="exit" id="exit" onclick="javascript:exit()">나가기</button>
 </body>
 </html>
