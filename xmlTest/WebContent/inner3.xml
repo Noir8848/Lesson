@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE booklist[
+	<!ELEMENT booklist (book)+>
+		<!ELEMENT book (title, (author | writer), publisher, price, description?)>
+			<!ELEMENT title (#PCDATA)>
+			<!ELEMENT author (#PCDATA)>
+			<!ELEMENT writer (#PCDATA)>
+			<!ELEMENT publisher (#PCDATA)>
+			<!ELEMENT price (#PCDATA)>
+			<!ELEMENT description (#PCDATA)>
+]>
+
+
+

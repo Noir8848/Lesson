@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- outer subset -->
+<!DOCTYPE booklist SYSTEM "outer.dtd">
+
+
+<booklist>
+	<book>
+		<title>java &amp; xml</title> <!-- java & xml -->
+		<author>홍길동</author>
+		<publisher>kitri</publisher>
+		<price>50000</price>
+
+	</book>
+	<book>
+		<title>java &amp; xml</title> <!-- java & xml -->
+		<writer>이순신</writer>
+		<publisher>키트리</publisher>
+		<price>35000</price>
+		<description>이 책은 좋은 책입니다.</description>		
+	</book>
+</booklist>

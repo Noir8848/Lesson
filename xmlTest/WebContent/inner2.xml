@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- 반드시 만들어야 하는 정의문 -->
+<!--inner DTD subset  -->
+<!DOCTYPE booklist[
+	<!ELEMENT book (title, author?, publisher?, price, writer, description?)*>
+		<!ELEMENT title (#PCDATA)><!--DTD-->
+		<!ELEMENT author (#PCDATA)>
+		<!ELEMENT publisher (#PCDATA)>
+		<!ELEMENT price (#PCDATA)>
+		<!ELEMENT writer (#PCDATA)>
+		<!ELEMENT description (#PCDATA)>	
+]>
+
+<booklist>
+	<book>
+		<title>java &amp; xml</title> <!-- java & xml -->
+		<author>홍길동</author>
+		<publisher>kitri</publisher>
+		<price>50000</price>	
+		<writer></writer>
+		<description></description>
+	</book>
+	<book>
+		<title>java &amp; xml</title> <!-- java & xml -->
+		<author></author>
+		<publisher>키트리</publisher>
+		<price>35000</price>
+		<writer>이순신</writer>
+		<description>이 책은 좋은 책입니다.</description>		
+	</book>
+</booklist>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- 반드시 만들어야 하는 정의문 -->
+
+<!DOCTYPE book[<!--루트 엘리먼트 정의 -->
+	<!ELEMENT book (title, author, publisher, price)><!--자식 엘리먼트 정의, 순서도 맞춰야 함 -->
+		<!ELEMENT title (#PCDATA)><!--DTD-->
+		<!ELEMENT author (#PCDATA)>
+		<!ELEMENT publisher (#PCDATA)>
+		<!ELEMENT price (#PCDATA)>
+]>
+<!-- well formed & well valid  -->
+
+<book>
+	<title>java &amp; xml</title> <!-- java & xml -->
+	<author>홍길동</author>
+	<publisher>kitri</publisher>
+	<price>50000</price>	
+</book>
+
+<!-- 이것만 입력시 well formed -->
+

@@ -156,7 +156,7 @@
       <Context docBase="jstest" path="/jstest" reloadable="true" source="org.eclipse.jst.jee.server:jstest"/>
       <Context docBase="memberjsp" path="/memberjsp" reloadable="true" source="org.eclipse.jst.jee.server:memberjsp"/>
       <Context docBase="memberbean" path="/memberbean" reloadable="true" source="org.eclipse.jst.jee.server:memberbean"/>
-</Host>
+<Context docBase="Project" path="/Project" reloadable="true" source="org.eclipse.jst.jee.server:Project"/><Context docBase="xmlTest" path="/xmlTest" reloadable="true" source="org.eclipse.jst.jee.server:xmlTest"/></Host>
     </Engine>
   </Service>
 </Server>
