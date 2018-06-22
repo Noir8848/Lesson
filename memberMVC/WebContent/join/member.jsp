@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 <%
 String root = request.getContextPath();
-
-int x = 10;
 %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,10 +9,11 @@ int x = 10;
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=root%>/css/style.css" type="text/css">
+<script type="text/javascript" src="<%=root%>/js/httpRequest.js"></script>
 <script type="text/javascript">
 function join(){
-	if(document.getElementById("id").value == "") {
-		alert("아이디 입력!");
+	if(cnt != 0) {
+		alert("아이디 확인!");
 		return;
 	} else if(document.getElementById("name").value == "") {
 		alert("이름 입력!");
@@ -26,7 +25,7 @@ function join(){
 		alert("비밀번호 확인!");
 		return;
 	} else {
-		document.joinform.action = "<%=root%>/join/register.jsp";
+		document.joinform.action = "<%=root%>/user";
 		document.joinform.submit();
 	}
 }
@@ -35,10 +34,35 @@ function openzip(){
 	window.open("<%=root%>/user?act=mvzip","zip","top=200, left=300, width=400, height=300, menubar=no, status=no, toolbar=no, location=no, scrollbars=yes");
 }
 
-function openidcheck(){
-	window.open("<%=root%>/user?act=mvidcheck","idck","top=200, left=300, width=400, height=180, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
+var view;
+var id;
+var cnt = 1;
+function idcheck() {
+	view = document.getElementById("idresult");
+	
+	id = document.getElementById("id").value;
+	if(id.length < 5 || id.length > 16) {
+		view.innerHTML = "아이디는 5자이상 16자이하입니다.";
+		return;
+	}
+	var params = "act=idsearch&id=" + id;
+	sendRequest("<%=root%>/user", params, idresult, "GET");
 }
 
+function idresult() {
+	if(httpRequest.readyState == 4) {//처리완료
+		if(httpRequest.status == 200) {
+			cnt = httpRequest.responseText;
+			if(cnt == 0) {
+				view.innerHTML = '<font color="blue"><b>' + id + '</b>는 사용 가능합니다.</font>';
+			} else {
+				view.innerHTML = '<font color="red"><b>' + id + '</b>는 사용중입니다.</font>';
+			}
+		} else {
+			alert("처리중 문제발생");
+		}
+	}
+}
 </script>
  </head>
 
@@ -46,7 +70,7 @@ function openidcheck(){
   <center>
 	<h3>회원가입</h3>
 	<form name ="joinform" method="post" action="">
-	<input type="hidden" name="act" value="register">
+	 <input type="hidden" name="act" value="register">
 	 <table width="780" height="700" cellspacing="4" cellpadding="5">
 			<tr>
 			 <td class="td1">이름<font color="red">*</font></td>
@@ -67,10 +91,11 @@ function openidcheck(){
 -->
 
 			<tr>
-			 <td class="td2">아이디(ID)<font color="red">*</font></td>
-			 <td class="td4"><input type="text" name="id" id="id" value="" size="12" readonly="readonly" onclick="javascript:openidcheck();">
-			  <input type="button" value="아이디중복검사" onclick="javascript:openidcheck();">
-			 &nbsp;&nbsp;<font color="#3cb371">4~12</font>자이내 영문이나 숫자(영문은 대소문자를 구별하므로 주의해주세요</td>
+			 	<td class="td2">아이디(ID)<font color="red">*</font></td>
+			 	<td class="td4">
+			 		<input type="text" name="id" id="id" value="" size="12" onkeyup="javascript:idcheck();">
+			 		<span id="idresult"></span>
+			  	</td>
 			</tr>
 
 			<tr>
@@ -140,18 +165,18 @@ function openidcheck(){
 			<tr>
 			 <td class="td2">우편번호<font color="red">*</font></td>
 			 <td class="td4">
-			 <input type="text" name="zipcode" id="zipcode" value="" size="5" maxlength="5">
-			 <input type="button" value="우편번호검색" onclick="javascript:openzip();" readOnly = "readOnly">
+			 	<input type="text" name="zipcode" id="zipcode" value="" size="5" maxlength="5" readonly="readonly">
+			 	<input type="button" value="우편번호검색" onclick="javascript:openzip();">
 			 </td>
 			</tr>
 			<tr>
 			 <td class="td1">주소<font color="red">*</font></td>
-			 <td class="td3"><input type="text" name="addr1" value="" size="100" readOnly = "readOnly"></td>
+			 <td class="td3"><input type="text" name="addr1" id="addr1" value="" size="100" readonly="readonly"></td>
 			</tr>
 
 			<tr>
 			 <td class="td2">상세주소<font color="red">*</font></td>
-			 <td class="td4"><input type="text" name="addr2" size="100" readOnly = "readOnly"></td>
+			 <td class="td4"><input type="text" name="addr2" size="100"></td>
 			</tr>
 
             <tr>

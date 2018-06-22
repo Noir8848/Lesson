@@ -1,57 +1,65 @@
-(프로젝트시 엑셀파일로)
-
 project name : membermvc
 
--src
-	- com.kitri.member.controller
-	MemberController.java (Servlet : /user)
-	
-	- com.kitri.member.model
-	MemberDto.java	
-	MemberDetailDto.java
-	ZipDto.java
-				
-	- com.kitri.member.service(모델에 포함됨, 강의 편의를 위해)
-	MemberService.java (Interface)
-	MemberServiceImpl.java
-		
-	- com.kitri.member.dao(모델에 포함됨, 강의 편의를 위해)	
-	MemberDao.java (Interface)
-	MemberDaoImpl.java	
-	
-	- com.kitri.util
-	
-	
-	- com.kitri.util.db
-	DBConnection.java
-	DBClose.java
-		
+- src
+  - com.kitri.member.controller
+    MemberController.java (Servlet : /user)
+  
+  - com.kitri.member.model
+    MemberDto.java
+    MemberDetailDto.java
+    ZipDto.java
+  
+  - com.kitri.member.service
+    MemberService.java (I)
+    MemberServiceImpl.java
+  
+  - com.kitri.member.dao
+    MemberDao.java (I)
+    MemberDaoImpl.java
+  
+  - com.kitri.util
+    
+  
+  - com.kitri.util.db
+    DBConnection.java
+    DBClose.java
 
--webContent (view)
-	-css : *.css
-	-doc : 설명파일들
-	-join : 회원설정에 관련 된 jsp 
-	-login : 로그인 관련 jsp
-	-index.jsp
-	
-	
-	엑셀파일을 csv저장
-	loader 혹은 developer이용
-	테이블 만듦
-	디벨로퍼 테이블 임포트 csv파일
-	과정 그대로 따라감
-	
-	
-*쿠키 & 세션
+- webContent
+  - css : *.css
+  - doc : 설명파일들.
+  - join : 회원설정에 관련 jsp
+  - login : 로그인 관련 jsp
+  - index.jsp
+  
+  
+* Cookie & Session
+1. Cookie		: client, txt (String)
+Cookie c = new Cookie(name, value);
+c.setDomain(domain);
+c.setPath("/login");
+c.setMaxAge(60 * 60 * 24 * 100);
 
-1.Cookie		: client, txt(String)
-Cookie c = new Cookie(String name, String value);
-c.setDomain("login"); // 아무 경로나 도메인에서 쓰지 못하게 제한하는 메소드
-c.setPath("login"); // 아무 경로나 도메인에서 쓰지 못하게 제한하는 메소드
-c.setMaxAge(60);  // 60초간 유효한 쿠키
+response.addCookie(c);
 
-response.addCookie(c);(java - 서버에서 작업한 파일 -> 클라이언트에게 txt로 보내야 함)
-
-2.HttpSession	: server, memory할당(Object)
+2. HttpSession	: server, memory(Object)
 
 
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

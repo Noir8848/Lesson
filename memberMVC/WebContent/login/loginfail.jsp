@@ -13,7 +13,7 @@ String root = request.getContextPath();
 <center>
 <font color="red" size="15">
 아이디 또는 비밀번호 확인 후 다시 로그인하세요.<br>
-<a href="<%=root%>/login/login.jsp">로그인</a>
+<a href="<%=root%>/user?act=mvlogin">로그인</a>
 </font>
 </center>
 </body>

@@ -1,26 +1,21 @@
 package com.kitri.util.db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBConnection {
 	
-	static {//블럭 static 최초 클래스를 부를 때 전역메소드로 올리고 계속 사용
+	static {
 		try {
-			Class.forName("oracle.jdbc.driver.Oracledriver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public static Connection makeConnection() {
+
+	public static Connection makeConnection() throws SQLException {
 		Connection conn = null;
-		try {
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "kitri", "kitri");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.18.43:1521:xe", "kitri", "kitri");
 		return conn;
 	}
+	
 }

@@ -33,3 +33,8 @@ create table zipcode
 	gugun varchar2(20),
 	doro varchar2(100)
 );
+
+
+
+
+

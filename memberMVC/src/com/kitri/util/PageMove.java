@@ -13,12 +13,9 @@ public class PageMove {
 		response.sendRedirect(request.getContextPath() + path);
 	}
 	
-	public static void forward(HttpServletRequest request, HttpServletResponse response, String path) {
+	public static void forward(HttpServletRequest request, HttpServletResponse response, String path) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		try {
-			dispatcher.forward(request, response);
-		} catch (ServletException | IOException e) {
-			e.printStackTrace();
-		}
+		dispatcher.forward(request, response);
 	}
+	
 }
