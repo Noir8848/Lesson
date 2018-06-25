@@ -149,14 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="basicjsp" path="/basicjsp" reloadable="true" source="org.eclipse.jst.jee.server:basicjsp"/>
-      <Context docBase="memberMVC" path="/membermvc" reloadable="true" source="org.eclipse.jst.jee.server:memberMVC"/>
-      <Context docBase="memberM" path="/memberm" reloadable="true" source="org.eclipse.jst.jee.server:memberM"/>
-      <Context docBase="memberforms" path="/memberforms" reloadable="true" source="org.eclipse.jst.jee.server:memberforms"/>
-      <Context docBase="jstest" path="/jstest" reloadable="true" source="org.eclipse.jst.jee.server:jstest"/>
-      <Context docBase="memberjsp" path="/memberjsp" reloadable="true" source="org.eclipse.jst.jee.server:memberjsp"/>
-      <Context docBase="memberbean" path="/memberbean" reloadable="true" source="org.eclipse.jst.jee.server:memberbean"/>
-<Context docBase="xmlTest" path="/xmlTest" reloadable="true" source="org.eclipse.jst.jee.server:xmlTest"/><Context docBase="ajaxtest" path="/ajaxtest" reloadable="true" source="org.eclipse.jst.jee.server:ajaxtest"/><Context docBase="naversearch" path="/naversearch" reloadable="true" source="org.eclipse.jst.jee.server:naversearch"/><Context docBase="Project" path="/Project" reloadable="true" source="org.eclipse.jst.jee.server:Project"/></Host>
+      <Context docBase="naversearch" path="/naversearch" reloadable="true" source="org.eclipse.jst.jee.server:naversearch"/><Context docBase="membermvcJSTL" path="/membermvcjstl" reloadable="true" source="org.eclipse.jst.jee.server:membermvcJSTL"/><Context docBase="test" path="/test" reloadable="true" source="org.eclipse.jst.jee.server:test"/><Context docBase="memberforms" path="/memberforms" reloadable="true" source="org.eclipse.jst.jee.server:memberforms"/><Context docBase="xmlTest" path="/xmlTest" reloadable="true" source="org.eclipse.jst.jee.server:xmlTest"/><Context docBase="213" path="/213" reloadable="true" source="org.eclipse.jst.jee.server:213"/><Context docBase="memberbean" path="/memberbean" reloadable="true" source="org.eclipse.jst.jee.server:memberbean"/><Context docBase="Project" path="/Project" reloadable="true" source="org.eclipse.jst.jee.server:Project"/></Host>
     </Engine>
   </Service>
 </Server>
