@@ -62,4 +62,14 @@ response.addCookie(c);
   
   
   
-  
+project : boardmvc
+	-src
+	
+	-webContent
+	-css : style sheet(*.css)
+	-js	: javascript(*.js)
+	-ing : jpg, gif, png
+	-META-INF : context.xml (connectio polling setting)
+	-WEB-INF
+		-lib : *.jar
+		  
